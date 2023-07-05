@@ -105,7 +105,7 @@ router.post("/updatePassword/:id", verificarToken, (req, res) => {
                 });
             });
         }).catch((err) => res.status(500).send({output:`Erro ao processar dados -> ${err}`}));
-    }).catch((error)=>res.status(500).send({output:`Erro ao procurar usuario -> ${error}`}));
+    }).catch((error)=>res.status(500).send({output:`Erro ao procurar usuario, tente novamente -> ${error}`}));
 });
 
 router.use((req, res) => {

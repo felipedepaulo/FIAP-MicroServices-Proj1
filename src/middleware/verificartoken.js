@@ -6,7 +6,7 @@ function verificartoken(req, res, next){
 
     if(!token_enviado){
         return res.status(401).send({
-            output:`Não existe token. Realize o processo de login`
+            output:`Não existe token. Realize o login `
         });
     }
     jwt.verify(token_enviado,config.jwt_secret, (err,result) => {

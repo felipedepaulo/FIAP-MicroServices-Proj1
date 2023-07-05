@@ -92,16 +92,16 @@ router.post("/updatePassword/:id", verificarToken, (req, res) => {
 
             bcrypt.hash(senhanova, config.bcrypt_salt, (err, senhanovacriptografada) => {
                 if(err){
-                    return res.status(500).send({output: `Erro ao gerar a senha -> ${err}`});
+                    return res.status(500).send({output: `Erro ao gerar a senha, tente novamente -> ${err}`});
                 }
 
                 Cliente.findByIdAndUpdate(req.params.id, {senha: senhanovacriptografada}, {new:true}).then((result) => {
                     if(!result){
-                        return res.status(400).send({ output: `Não foi possível atualizar` });
+                        return res.status(400).send({ output: `Não foi possível atualizar, tente novamente` });
                     }
                     res.status(202).send({ output: `Atualizado`, payload:result });
                 }).catch((erro) => {
-                    res.status(500).send({ output: `Erro ao processar a solicitação -> ${erro}` });
+                    res.status(500).send({ output: `Erro ao processar a solicitação, tente novamente -> ${erro}` });
                 });
             });
         }).catch((err) => res.status(500).send({output:`Erro ao processar dados -> ${err}`}));

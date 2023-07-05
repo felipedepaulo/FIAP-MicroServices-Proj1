@@ -8,7 +8,7 @@
     "start": "nodemon src/index.js"
   },
   "keywords": [],
-  "author": "Felipe Rodrigues",
+  "author": "Felipe de Paulo Rodrigues",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
